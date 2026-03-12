@@ -40,11 +40,12 @@ export default function MainStudentForm() {
       {/* Main form wrapper */}
       <form
         onSubmit={handleSubmit(onSubmit)}
+        autoComplete="off"
         className="max-w-4xl mx-auto bg-white dark:bg-gray-900 rounded-3xl shadow-2xl border border-gray-200 dark:border-gray-800 p-10 space-y-8"
       >
         {/* Form heading */}
         <h2 className="text-4xl font-extrabold text-center bg-gradient-to-r from-blue-600 to-indigo-600 text-white py-4 rounded-xl shadow">
-          📘 New Student Registration
+          📘 تسجيل طالب جديد
         </h2>
 
         {/* Step 1: Personal Information Form */}
