@@ -5,30 +5,53 @@ import useSWR from "swr";
 const fetcher = (url) => fetch(url).then((r) => r.json());
 
 export default function StudentHeader({ id }) {
-  const { data: student } = useSWR(
+  const { data: student, isLoading } = useSWR(
     `http://localhost:3001/students/${id}`,
     fetcher
   );
 
   return (
-    <header className="h-16 bg-white border-b flex items-center justify-between px-6">
-      <h1 className="text-xl font-bold text-gray-800">
-        Student Dashboard
-      </h1>
-
-      <div className="flex items-center gap-3">
+    <header className="h-20 bg-white border-b px-6">
+     <div className="flex h-full items-center justify-between flex-row-reverse">
+        
+        {/* عنوان الصفحة */}
         <div className="text-right">
-          <p className="font-medium text-gray-800">
-            {student?.name}
-          </p>
+          <h1 className="text-2xl font-bold text-slate-800">
+           الملف الشخصي
+          </h1>
 
-          <p className="text-sm text-gray-500">
-            Student
-          </p>
+          
         </div>
 
-        <div className="w-11 h-11 rounded-full bg-black text-white flex items-center justify-center font-bold">
-          {student?.name?.charAt(0)}
+        {/* بيانات الطالب */}
+        <div className="flex items-center gap-5">
+          
+          {/* إشعارات */}
+          <button className="relative text-2xl">
+            🔔
+
+            <span className="absolute -right-2 -top-2 flex h-5 w-5 items-center justify-center rounded-full bg-red-500 text-xs text-white">
+              5
+            </span>
+          </button>
+
+          {!isLoading && student && (
+            <>
+              <div className="text-right">
+                <h2 className="font-bold text-slate-800">
+                  {student.name}
+                </h2>
+
+                <p className="text-sm text-slate-500">
+                  طالب
+                </p>
+              </div>
+
+              <div className="flex h-12 w-12 items-center justify-center rounded-full bg-blue-100 text-xl">
+                👨‍🎓
+              </div>
+            </>
+          )}
         </div>
       </div>
     </header>

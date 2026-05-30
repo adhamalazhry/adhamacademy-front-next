@@ -2,7 +2,8 @@
 
 import { use } from "react";
 import useSWR from "swr";
-import StudentProfileCard from "@/components/students/StudentProfileCard";
+
+import StudentData from "@/components/Students/studentPrpfile/StudentData";
 
 const fetcher = (url) => fetch(url).then((r) => r.json());
 
@@ -18,8 +19,9 @@ export default function ProfilePage({ params }) {
   if (error) return <p>Error loading data</p>;
 
   return (
-    <div className="flex min-h-[80vh] items-center justify-center">
-      <StudentProfileCard student={student} />
-    </div>
+    <>
+      <StudentData student={student}/>
+     
+    </>
   );
 }

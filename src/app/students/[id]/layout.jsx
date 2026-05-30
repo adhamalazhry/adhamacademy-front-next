@@ -9,16 +9,18 @@ export default function StudentLayout({ children, params }) {
   const { id } = use(params);
 
   return (
-    <div className="min-h-screen bg-gray-50 flex flex-col">
-      <StudentHeader  id={id}/>
+    <div className="min-h-screen bg-gray-50 flex flex-row-reverse">
+      <StudentSidebar id={id} />
 
-      <div className="flex flex-1">
-        <main className="flex-1 p-6">{children}</main>
+      <div className="flex min-h-screen flex-1 flex-col">
+        <StudentHeader  id={id}/>
 
-        <StudentSidebar id={id} />
+        <main className="flex-1 p-6">
+          {children}
+        </main>
+
+        <StudentFooter />
       </div>
-
-      <StudentFooter />
     </div>
   );
 }
