@@ -10,6 +10,12 @@ export default function Home() {
           📘 Adham Academy
         </h1>
         <nav className="space-x-3 md:space-x-5 flex items-center">
+            <Link href="/students" className="bg-amber-600 from-green-500 to-emerald-500 text-white px-4 py-2 rounded-full text-sm md:text-base font-semibold shadow hover:scale-105 transition">
+            الطلاب
+          </Link>
+            <Link href="/teachers" className="bg-gradient-to-r from-green-500 to-emerald-500 text-white px-4 py-2 rounded-full text-sm md:text-base font-semibold shadow hover:scale-105 transition">
+            المعلمون
+          </Link>
           <Link href="/" className="text-sm md:text-base text-gray-700 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 font-medium">
             🏠 الرئيسية
           </Link>
@@ -19,6 +25,7 @@ export default function Home() {
           <Link href="/students/add-student" className="bg-gradient-to-r from-green-500 to-emerald-500 text-white px-4 py-2 rounded-full text-sm md:text-base font-semibold shadow hover:scale-105 transition">
             ➕ تسجيل طالب
           </Link>
+          
         </nav>
       </header>
 
@@ -46,6 +53,7 @@ export default function Home() {
                 ✍️ انضم كمعلم
               </button>
             </Link>
+             
           </div>
 
         </div>

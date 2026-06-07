@@ -17,18 +17,24 @@ export default function StudentSidebar({ id }) {
     <aside className="h-screen w-72 shrink-0 border-l border-gray-200 bg-white px-6 py-6">
       {/* Logo */}
       <div className="mb-8 flex items-center justify-center gap-3 border-b pb-6">
-       <Image
-  src="/logo.png"
-  alt="Academy Logo"
-  width={50}
-  height={50}
-  className="rounded-lg"
-/>
+        <Image
+          src="/logo.png"
+          alt="Academy Logo"
+          width={50}
+          height={50}
+          className="rounded-lg"
+        />
 
-        <div className="text-right">
-          <h2 className="text-xl font-bold text-slate-900">أكاديمية الأدهم</h2>
-          <p className="text-sm text-slate-500">للعليم عبر الإنترنت</p>
-        </div>
+        <Link href="/">
+          <div className="text-right group cursor-pointer">
+            <h2 className="text-xl font-bold text-slate-900 group-hover:text-blue-600 transition">
+              أكاديمية الأدهم
+            </h2>
+            <p className="text-sm text-slate-500 group-hover:text-blue-500 transition">
+              للتعليم عبر الإنترنت
+            </p>
+          </div>
+        </Link>
       </div>
 
       {/* Links */}

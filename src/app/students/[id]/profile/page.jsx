@@ -3,7 +3,8 @@
 import { use } from "react";
 import useSWR from "swr";
 
-import StudentData from "@/components/Students/studentPrpfile/StudentData";
+import StudentProfileCard from "@/components/Students/studentPrpfile/StudentProfileCard";
+import StudentInfo from "@/components/Students/StudentInfo";
 
 const fetcher = (url) => fetch(url).then((r) => r.json());
 
@@ -20,7 +21,8 @@ export default function ProfilePage({ params }) {
 
   return (
     <>
-      <StudentData student={student}/>
+      <StudentProfileCard student={student}/>
+      <StudentInfo student ={student}/>
      
     </>
   );
