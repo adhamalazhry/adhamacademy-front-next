@@ -6,13 +6,13 @@ import useSWR from "swr";
 import StudentReportsList from "@/components/Reports/StudentReportsList";
 import { getStudentReports } from "@/services/report.service";
 
-export default function StudentReportsPage({ params }) {
+export default function TeacherStudentReportsPage({ params }) {
   const { studentId } = use(params);
 
   const {
     data: reports,
-    error,
     isLoading,
+    error,
   } = useSWR(
     ["student-reports", studentId],
     () => getStudentReports(studentId)

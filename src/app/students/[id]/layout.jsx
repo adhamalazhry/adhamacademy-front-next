@@ -1,8 +1,9 @@
 "use client";
 
 import { use } from "react";
-import StudentHeader from "@/components/students/StudentHeader";
-import StudentSidebar from "@/components/students/StudentSidebar";
+import Header from "@/components/layout/Header";
+import Sidebar from "@/components/layout/Sidebar";
+import { getStudentLinks } from "@/components/config/sidebar/student";
 import StudentFooter from "@/components/students/StudentFooter";
 
 export default function StudentLayout({ children, params }) {
@@ -10,14 +11,21 @@ export default function StudentLayout({ children, params }) {
 
   return (
     <div className="min-h-screen bg-gray-50 flex flex-row-reverse">
-      <StudentSidebar id={id} />
+      <Sidebar
+        title="أكاديمية الأدهم"
+        subtitle="بوابة الطالب"
+        links={getStudentLinks(id)}
+      />
 
       <div className="flex min-h-screen flex-1 flex-col">
-        <StudentHeader  id={id}/>
-
-        <main className="flex-1 p-6">
-          {children}
-        </main>
+        <Header
+          title="لوحة الطالب"
+          userName="محمد أحمد"
+          profileHref={`/students/${id}/profile`}
+          notifications={5}
+          messages={2}
+        />
+        <main className="flex-1 p-6">{children}</main>
 
         <StudentFooter />
       </div>
