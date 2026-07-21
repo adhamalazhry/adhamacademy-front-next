@@ -6,7 +6,7 @@ const fetcher = (url) => fetch(url).then((r) => r.json());
 
 export default function StudentHeader({ id }) {
   const { data: student, isLoading } = useSWR(
-    `http://localhost:3001/students/${id}`,
+    `/api/students/${id}`,
     fetcher
   );
 

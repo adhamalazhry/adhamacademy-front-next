@@ -11,17 +11,24 @@ export default function FormRenderer({
     label: field.label,
     name: field.name,
     placeholder: field.placeholder,
+    defaultValue: field.defaultValue,
     register,
     rules: field.rules,
     error: errors[field.name],
   };
+
+  const inputType = field.type ?? field.inputType;
 
   switch (field.component) {
     case "input":
       return (
         <FormInput
           {...commonProps}
-          type={field.inputType}
+          type={inputType}
+          step={field.step}
+          min={field.min}
+          max={field.max}
+          inputMode={field.inputMode}
         />
       );
 
@@ -29,6 +36,7 @@ export default function FormRenderer({
       return (
         <FormSelect
           {...commonProps}
+          defaultValue={field.defaultValue}
           options={field.options}
         />
       );

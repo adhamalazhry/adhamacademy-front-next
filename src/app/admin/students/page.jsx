@@ -1,11 +1,19 @@
 "use client";
 
+import { useState } from "react";
 import useSWR from "swr";
 import { getStudents } from "@/services/student.service";
-import Link from "next/link";
-import DataTable from "@/components/table/DataTable"
+import DataTable from "@/components/table/DataTable";
+import TeacherSelector from "@/components/teachers/teacher-selector/TeacherSelector";
+import SubscriptionSelector from "@/components/subscriptions/SubscriptionSelector";
 
 export default function StudentsPage() {
+  const [openTeacherStudentId, setOpenTeacherStudentId] =
+    useState(null);
+
+  const [openSubscriptionStudentId, setOpenSubscriptionStudentId] =
+    useState(null);
+
   const {
     data: students,
     error,
@@ -15,6 +23,10 @@ export default function StudentsPage() {
   if (isLoading) return <p>Loading...</p>;
 
   if (error) return <p>Error loading data</p>;
+
+  if (!Array.isArray(students)) {
+    return <p>لا يمكن عرض الطلاب حالياً.</p>;
+  }
 
   const columns = [
   {
@@ -27,8 +39,27 @@ export default function StudentsPage() {
   },
   {
     title: "المعلم",
-    render: (student) =>
-      student.teacher?.name || "لا يوجد معلم",
+    render: (student) => (
+      <TeacherSelector
+        student={student}
+        isOpen={openTeacherStudentId === student.id}
+        onOpenChange={(open) => {
+          setOpenTeacherStudentId(open ? student.id : null);
+        }}
+      />
+    ),
+  },
+  {
+    title: "الاشتراك",
+    render: (student) => (
+      <SubscriptionSelector
+        student={student}
+        isOpen={openSubscriptionStudentId === student.id}
+        onOpenChange={(open) => {
+          setOpenSubscriptionStudentId(open ? student.id : null);
+        }}
+      />
+    ),
   },
   
 ];

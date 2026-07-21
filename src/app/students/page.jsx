@@ -7,7 +7,7 @@ const fetcher = (url) => fetch(url).then((r) => r.json());
 
 export default function StudentsPage() {
   const { data: students, error, isLoading } = useSWR(
-    "http://localhost:3001/students",
+    "/api/students",
     fetcher
   );
 

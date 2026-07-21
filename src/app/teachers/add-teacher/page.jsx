@@ -1,9 +1,17 @@
+"use client";
 
-import AddTeacherForm from "@/components/Teachers/AddTeacherForm"
+import TeacherUpsertForm from "@/components/teachers/forms/TeacherUpsertForm";
+
 export default function AddTeacherFormPage() {
   return (
-    <div>
-      <AddTeacherForm/>
+    <div dir="rtl" className="p-8">
+      <div className="mx-auto max-w-3xl">
+        <TeacherUpsertForm
+          title="إضافة معلم"
+          description="أنشئ معلمًا جديدًا مع بيانات الاتصال وسعر الساعة والعملة الافتراضية."
+          submitLabel="حفظ المعلم"
+        />
+      </div>
     </div>
-  )
+  );
 }

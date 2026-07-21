@@ -1,45 +1,71 @@
-export const getStudentLinks = (id) => [
+export const studentLinks = [
   {
-    title: "الصفحة الرئيسية",
-    href: `/students/${id}`,
+    title: "لوحة الطالب",
+    href: "/student/dashboard",
     icon: "🏠",
   },
   {
     title: "الملف الشخصي",
-    href: `/students/${id}/profile`,
+    href: "/student/profile",
     icon: "👤",
   },
   {
     title: "جدول الحصص",
-    href: `/students/${id}/schedule`,
+    href: "/student/schedule",
     icon: "📅",
   },
   {
     title: "تقارير الحصص",
-    href: `/students/${id}/reports`,
+    href: "/student/reports",
     icon: "📊",
   },
   {
     title: "الاشتراكات",
-    href: `/students/${id}/payments`,
+    href: "/student/subscription",
     icon: "💳",
   },
   {
-    title: "الرسائل",
-    href: `/students/${id}/messages`,
-    icon: "💬",
-    badge: 3,
+    title: "الواجبات",
+    href: "/student/homework",
+    icon: "📝",
   },
   {
     title: "الإشعارات",
-    href: `/students/${id}/notifications`,
+    href: "/student/notifications",
     icon: "🔔",
-    badge: 5,
   },
-  {
-    title: "الإعدادات",
-    href: `/students/${id}/settings`,
-    icon: "⚙️",
-  },
-  
 ];
+
+export function getStudentLinks(studentId) {
+  if (!studentId) {
+    return studentLinks;
+  }
+
+  return [
+    {
+      title: "لوحة الطالب",
+      href: `/students/${studentId}`,
+      icon: "🏠",
+    },
+    {
+      title: "الملف الشخصي",
+      href: `/students/${studentId}/profile`,
+      icon: "👤",
+    },
+    {
+      title: "جدول الحصص",
+      href: `/students/${studentId}/schedule`,
+      icon: "📅",
+    },
+    {
+      title: "تقارير الحصص",
+      href: `/students/${studentId}/reports`,
+      icon: "📊",
+    },
+    {
+      title: "الواجبات",
+      href: `/students/${studentId}/homework`,
+      icon: "📝",
+    },
+  ];
+}

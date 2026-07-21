@@ -1,25 +1,17 @@
 "use client";
 
 import { use } from "react";
-import useSWR from "swr";
-
-import StudentReportsList from "@/components/Reports/StudentReportsList";
-import { getStudentReports } from "@/services/report.service";
+import LessonReportsWorkspace from "@/components/reports/lesson-report/LessonReportsWorkspace";
 
 export default function TeacherStudentReportsPage({ params }) {
-  const { studentId } = use(params);
+  const { id, studentId } = use(params);
 
-  const {
-    data: reports,
-    isLoading,
-    error,
-  } = useSWR(
-    ["student-reports", studentId],
-    () => getStudentReports(studentId)
+  return (
+    <LessonReportsWorkspace
+      studentId={studentId}
+      teacherId={id}
+      createHref={`/teachers/${id}/students/${studentId}/reports/new`}
+      routeVariant="teachers"
+    />
   );
-
-  if (isLoading) return <p>Loading...</p>;
-  if (error) return <p>Error...</p>;
-
-  return <StudentReportsList reports={reports} />;
 }

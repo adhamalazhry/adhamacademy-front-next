@@ -9,6 +9,7 @@ export default function FormSelect({
   register,
   rules,
   error,
+  defaultValue,
   ...props
 }) {
   return (
@@ -25,6 +26,7 @@ export default function FormSelect({
       <Select
         id={name}
         options={options}
+        defaultValue={defaultValue}
         {...register(name, rules)}
         {...props}
       />

@@ -13,13 +13,13 @@ export default function PaymentsPage({ params }) {
     data: student,
     error: studentError,
     isLoading: studentLoading,
-  } = useSWR(`http://localhost:3001/students/${id}`, fetcher);
+  } = useSWR(`/api/students/${id}`, fetcher);
 
   const {
     data: reports,
     error: reportsError,
     isLoading: reportsLoading,
-  } = useSWR(`http://localhost:3001/reports/student/${id}`, fetcher);
+  } = useSWR(`/api/reports/student/${id}`, fetcher);
 
   if (studentLoading || reportsLoading) {
     return <p className="p-6 text-gray-600">Loading...</p>;
