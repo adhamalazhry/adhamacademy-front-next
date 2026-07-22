@@ -4,7 +4,7 @@ import Link from "next/link";
 
 import FormButton from "@/components/forms/FormButton";
 
-export default function LessonFooter({ backHref, isSubmitting, submitLabel }) {
+export default function LessonReportFormFooter({ backHref, isSubmitting, submitLabel }) {
   return (
     <div className="sticky bottom-3 z-20 rounded-[1.4rem] border border-slate-200 bg-white/95 p-3 shadow-xl shadow-slate-200/70 backdrop-blur">
       <div className="flex flex-wrap items-center justify-between gap-3" dir="rtl">
