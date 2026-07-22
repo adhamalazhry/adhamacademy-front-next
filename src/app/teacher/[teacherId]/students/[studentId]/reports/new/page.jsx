@@ -3,8 +3,8 @@
 import { use } from "react";
 import useSWR from "swr";
 import LessonReportForm from "@/components/reports/lesson-report/LessonReportForm";
-import { getTeacher } from "@/services/teacher.service";
-import { getTeacherStudent } from "@/services/student.service";
+import { getTeacher } from "@/services/teachers/teacher.service";
+import { getTeacherStudent } from "@/services/students/student.service";
 import { teacherStudentReportsPath } from "@/lib/routes/teacher";
 
 export default function NewLessonReportPage({ params }) {

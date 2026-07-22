@@ -4,7 +4,7 @@ import { useMemo, useState } from "react";
 import Link from "next/link";
 import { useSWRConfig } from "swr";
 import Toast from "@/components/ui/Toast";
-import { deleteReport } from "@/services/report.service";
+import { deleteReport } from "@/services/reprts/report.service";
 
 function getReportDuration(report) {
   const candidate =

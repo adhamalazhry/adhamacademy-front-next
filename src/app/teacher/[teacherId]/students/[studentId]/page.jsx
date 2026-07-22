@@ -3,7 +3,7 @@
 import { use } from "react";
 import Link from "next/link";
 import useSWR from "swr";
-import { getTeacherStudent } from "@/services/student.service";
+import { getTeacherStudent } from "@/services/students/student.service";
 import {
   teacherStudentHomeworkPath,
   teacherStudentProfilePath,

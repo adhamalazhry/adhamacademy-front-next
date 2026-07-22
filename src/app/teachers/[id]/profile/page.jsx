@@ -4,9 +4,8 @@ import { use } from "react";
 import useSWR from "swr";
 import {
   formatTeacherHourlyRate,
-  getTeacher,
   formatTeacherStudentCount,
-} from "@/services/teacher.service";
+} from "@/services/common/formatter";
 
 export default function TeacherProfilePage({ params }) {
   const { id } = use(params);

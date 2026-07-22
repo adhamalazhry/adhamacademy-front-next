@@ -2,8 +2,8 @@
 
 import { useMemo, useState } from "react";
 import useSWR, { mutate } from "swr";
-import { getTeachers } from "@/services/teacher.service";
-import { assignTeacherToStudent } from "@/services/student.service";
+import { getTeachers } from "@/services/teachers/teacher.service";
+import { assignTeacherToStudent } from "@/services/students/student.service";
 import Popover from "@/components/ui/Popover";
 import { MoreVertical, UserRound, UserRoundX } from "lucide-react";
 import TeacherActions from "./TeacherActions";

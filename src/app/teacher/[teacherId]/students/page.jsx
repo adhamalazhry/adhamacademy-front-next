@@ -3,8 +3,8 @@
 import Link from "next/link";
 import { use } from "react";
 import useSWR from "swr";
-import TeacherSkeleton from "@/components/teacher-portal/TeacherSkeleton";
-import { getTeacherStudents } from "@/services/teacher.service";
+import TeacherSkeleton from "@/components/teachers/teacher-portal/TeacherSkeleton";
+import { getTeacherStudents } from "@/services/teachers/teacher-student.service";
 import { teacherStudentPath } from "@/lib/routes/teacher";
 
 export default function TeacherStudentsPage({ params }) {

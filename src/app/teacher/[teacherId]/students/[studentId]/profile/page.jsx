@@ -4,7 +4,7 @@ import { use } from "react";
 import useSWR from "swr";
 import StudentProfileCard from "@/components/Students/studentPrpfile/StudentProfileCard";
 import StudentInfo from "@/components/Students/StudentInfo";
-import { getTeacherStudent } from "@/services/student.service";
+import { getTeacherStudent } from "@/services/students/student.service";
 
 export default function TeacherStudentProfilePage({ params }) {
   const { teacherId, studentId } = use(params);

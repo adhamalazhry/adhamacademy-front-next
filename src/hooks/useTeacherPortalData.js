@@ -1,7 +1,7 @@
 "use client";
 
 import useSWR from "swr";
-import { getTeacherPortalData } from "@/services/teacher-dashboard.service";
+import { getTeacherPortalData } from "@/services/teachers/teacher-dashboard.service";
 
 export function useTeacherPortalData(teacherId) {
   return useSWR(

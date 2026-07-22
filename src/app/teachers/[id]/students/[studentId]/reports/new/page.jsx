@@ -4,8 +4,8 @@ import { use } from "react";
 import useSWR from "swr";
 
 import LessonReportForm from "@/components/reports/lesson-report/LessonReportForm";
-import { getStudent } from "@/services/student.service";
-import { getTeacher } from "@/services/teacher.service";
+import { getStudent } from "@/services/students/student.service";
+import { getTeacher } from "@/services/teachers/teacher.service";
 
 export default function NewLessonReportPage({ params }) {
   const { id, studentId } = use(params);
@@ -37,8 +37,8 @@ export default function NewLessonReportPage({ params }) {
   }
 
   return (
-    <div className="space-y-6 p-6" dir="rtl">
-      <LessonReportForm
+    <div className="space-y-6 p-6 " dir="rtl">
+      <LessonReportForm 
         student={student}
         teacher={teacher}
         studentId={studentId}

@@ -5,13 +5,13 @@ import Link from "next/link";
 import useSWR from "swr";
 import Input from "@/components/ui/Input";
 import Button from "@/components/ui/Button";
-import TeacherSectionCard from "@/components/teacher-portal/TeacherSectionCard";
-import TeacherSkeleton from "@/components/teacher-portal/TeacherSkeleton";
+import TeacherSectionCard from "@/components/teachers/teacher-portal/TeacherSectionCard";
+import TeacherSkeleton from "@/components/teachers/teacher-portal/TeacherSkeleton";
 import {
   teacherStudentReportDetailsPath,
   teacherStudentReportEditPath,
 } from "@/lib/routes/teacher";
-import { getTeacherReports } from "@/services/report.service";
+import { getTeacherReports } from "@/services/reprts/report.service";
 
 export default function TeacherReportsPage({ params }) {
   const { teacherId } = use(params);

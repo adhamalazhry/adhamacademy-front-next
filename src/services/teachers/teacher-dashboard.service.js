@@ -1,5 +1,5 @@
-import { getTeacherStudents } from "@/services/teacher.service";
-import { getStudentReports } from "@/services/report.service";
+import { getTeacherStudents } from "@/services/teachers/teacher-student.service";
+import { getStudentReports } from "@/services/reprts/report.service";
 
 export async function getTeacherPortalData(teacherId) {
   const students = await getTeacherStudents(teacherId);

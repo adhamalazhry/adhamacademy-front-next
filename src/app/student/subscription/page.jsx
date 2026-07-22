@@ -1,7 +1,7 @@
 "use client";
 
 import useSWR from "swr";
-import { getStudentSubscription } from "@/services/subscription.service";
+import { getStudentSubscription } from "@/services//students/student-subscription.service";
 import { getClientSession } from "@/lib/auth/session-client";
 
 export default function StudentSubscriptionPage() {

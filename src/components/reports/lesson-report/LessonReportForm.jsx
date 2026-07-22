@@ -21,8 +21,9 @@ import HomeworkCard from "./LessonReport/sections/HomeworkCard";
 import NotesCard from "./LessonReport/sections/NotesCard";
 import { useLessonReport } from "./LessonReport/hooks/useLessonReport";
 import { getLessonDay, resolveLessonDuration, resolveTeacherName } from "./lesson-report-utils";
-import { createLessonReport } from "@/services/report.service";
+import { createLessonReport } from "@/services/reprts/report.service";
 import { getSurahAyahCountByName } from "@/lib/quran/surahs";
+
 
 function createDefaultValues(dateValue) {
   return {
@@ -326,7 +327,7 @@ export default function LessonReportForm({
   return (
     <form
       dir="rtl"
-      className="space-y-6 rounded-[2.2rem] bg-[radial-gradient(circle_at_top,_rgba(226,232,240,0.45),_rgba(248,250,252,0.92)_45%,_rgba(255,255,255,1))] p-3 md:p-5"
+      className="space-y-6 rounded-[2.2rem] bg-[radial-gradient(circle_at_top,_rgba(226,232,240,0.45),_rgba(248,250,252,0.92)_45%,_rgba(255,255,255,1))] p-3 md:p-5 "
       onSubmit={handleSubmit(onSubmit)}
     >
       <LessonStatusMessage message={statusMessage} type="success" />
@@ -335,13 +336,13 @@ export default function LessonReportForm({
       <LessonReportHeader
         student={student}
         teacherName={teacherName}
-        teacherEmail={teacher?.email || student?.teacher?.email || ""}
+       
         dateValue={dateValue}
         lessonDay={lessonDay}
         lessonDuration={lessonDuration}
       />
-
-      <section className="rounded-[2rem] border border-slate-200 bg-white/90 p-6 shadow-sm shadow-slate-200/70">
+{/*  تاريخ الحصة واليوم */}
+      <section className="rounded-[2rem] border border-slate-200  p-6 shadow-sm shadow-slate-200/70">
         <div className="grid gap-4 md:grid-cols-[1fr_auto] md:items-end">
           <FormInput
             label="تاريخ الحصة"
@@ -360,15 +361,17 @@ export default function LessonReportForm({
           </div>
         </div>
       </section>
+{/* قسم  نموذج التقرير */}
+      <div className="grid gap-4 xl:grid-cols-[1fr_320px]  ">
 
-      <div className="grid gap-4 xl:grid-cols-[1fr_320px]">
-        <section className="space-y-4">
+        {/* قسم الفورم  الفورم فقط  */}
+        <section className="space-y-4 ">
           <LessonSectionPicker
             sections={hiddenSections}
             onEnableSection={enableSection}
           />
 
-          <MemorizationCard
+          <MemorizationCard 
             visible={visibleSections.memorization}
             sectionKey="memorization"
             register={register}

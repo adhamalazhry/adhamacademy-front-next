@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import useSWR from "swr";
-import { getStudents } from "@/services/student.service";
+import { getStudents } from "@/services/students/student.service";
 import DataTable from "@/components/table/DataTable";
 import TeacherSelector from "@/components/teachers/teacher-selector/TeacherSelector";
 import SubscriptionSelector from "@/components/subscriptions/SubscriptionSelector";

@@ -6,9 +6,9 @@ import useSWR, { useSWRConfig } from "swr";
 import LessonReportForm from "@/components/reports/lesson-report/LessonReportForm";
 import Toast from "@/components/ui/Toast";
 import { teacherStudentReportsPath } from "@/lib/routes/teacher";
-import { getReport, updateReport } from "@/services/report.service";
-import { getTeacher } from "@/services/teacher.service";
-import { getTeacherStudent } from "@/services/student.service";
+import { getReport, updateReport } from "@/services/reprts/report.service";
+import { getTeacher } from "@/services/teachers/teacher.service";
+import { getTeacherStudent } from "@/services/students/student.service";
 
 function mapReportToFormDefaults(report) {
   const mapSection = (items) =>

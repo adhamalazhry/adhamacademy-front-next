@@ -4,7 +4,7 @@ import { useForm } from "react-hook-form";
 
 import StudentBasicInfoForm from "@/components/students/forms/StudentBasicInfoForm";
 import FormButton from "@/components/forms/FormButton";
-import { createStudent } from "@/services/student.service";
+import { createStudent } from "@/services/students/student.service";
 
 export default function AddStudentPage() {
   const {

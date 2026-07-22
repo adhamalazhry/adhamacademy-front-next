@@ -6,7 +6,7 @@ export default function MemorizationCard({ visible, sectionKey, ...props }) {
     <SectionCardFrame
       isVisible={visible}
       sectionKey={sectionKey}
-      title="ما تم في الحصة - التسميع"
+      title="     التسميع"
       description="توثيق الايات التي تم تسميعها بالفعل داخل الحصة."
       tone="emerald"
     >

@@ -5,7 +5,7 @@ import Link from "next/link";
 import useSWR from "swr";
 
 import TeacherUpsertForm from "@/components/teachers/forms/TeacherUpsertForm";
-import { getTeacher } from "@/services/teacher.service";
+import { getTeacher } from "@/services/teachers/teacher.service";
 
 export default function AdminTeacherEditPage({ params }) {
   const { id } = use(params);

@@ -3,36 +3,95 @@
 import { AnimatePresence, motion } from "framer-motion";
 
 const toneStyles = {
-  emerald: "border-emerald-200 bg-[linear-gradient(180deg,_rgba(236,253,245,0.74),_rgba(255,255,255,0.98))]",
-  blue: "border-blue-200 bg-[linear-gradient(180deg,_rgba(239,246,255,0.82),_rgba(255,255,255,0.98))]",
-  amber: "border-amber-200 bg-[linear-gradient(180deg,_rgba(255,251,235,0.84),_rgba(255,255,255,0.98))]",
-  violet: "border-violet-200 bg-[linear-gradient(180deg,_rgba(245,243,255,0.84),_rgba(255,255,255,0.98))]",
-  teal: "border-teal-200 bg-[linear-gradient(180deg,_rgba(240,253,250,0.84),_rgba(255,255,255,0.98))]",
-  slate: "border-slate-200 bg-[linear-gradient(180deg,_rgba(248,250,252,0.92),_rgba(255,255,255,0.98))]",
-  fuchsia: "border-fuchsia-200 bg-[linear-gradient(180deg,_rgba(253,244,255,0.84),_rgba(255,255,255,0.98))]",
-  rose: "border-rose-200 bg-[linear-gradient(180deg,_rgba(255,241,242,0.84),_rgba(255,255,255,0.98))]",
+  emerald: "bg-emerald-500",
+  blue: "bg-blue-500",
+  amber: "bg-amber-500",
+  violet: "bg-violet-500",
+  teal: "bg-teal-500",
+  slate: "bg-slate-500",
+  fuchsia: "bg-fuchsia-500",
+  rose: "bg-rose-500",
 };
 
-export default function SectionCardFrame({ isVisible, sectionKey, title, description, tone = "slate", children }) {
+export default function SectionCardFrame({
+  isVisible,
+  sectionKey,
+  title,
+  description,
+  tone = "slate",
+  icon,
+  children,
+}) {
   return (
-    <AnimatePresence>
-      {isVisible ? (
+    <AnimatePresence mode="wait">
+      {isVisible && (
         <motion.section
           id={`section-${sectionKey}`}
-          initial={{ opacity: 0, y: 16, scale: 0.995 }}
-          animate={{ opacity: 1, y: 0, scale: 1 }}
-          exit={{ opacity: 0, y: -6 }}
-          transition={{ duration: 0.24 }}
-          className={`rounded-[1.8rem] border p-4 shadow-sm shadow-slate-200/60 ${toneStyles[tone] || toneStyles.slate}`}
+          initial={{ opacity: 0, y: 18 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: -12 }}
+          transition={{
+            duration: 0.25,
+            ease: "easeOut",
+          }}
+          className="
+            overflow-hidden
+            rounded-3xl
+            border
+            border-slate-200
+            bg-white
+            shadow-sm
+            transition-all
+            duration-300
+            hover:border-slate-300
+            hover:shadow-lg
+          "
         >
-          <div className="mb-4 rounded-[1.2rem] border border-white/80 bg-white/80 px-4 py-4 text-right shadow-sm shadow-slate-200/40">
-            <h3 className="text-lg font-extrabold text-slate-900">{title}</h3>
-            {description ? <p className="mt-2 text-sm leading-7 text-slate-600">{description}</p> : null}
+          {/* Header */}
+
+          <div className="border-b border-slate-200 bg-slate-50">
+            <div className="flex items-start gap-5 p-6">
+
+              {/* Accent */}
+
+              <div
+                className={`mt-1 h-12 w-1.5 rounded-full ${
+                  toneStyles[tone] ?? toneStyles.slate
+                }`}
+              />
+
+              {/* Icon */}
+
+              {icon && (
+                <div className="rounded-2xl border border-slate-200 bg-white p-3 text-slate-700 shadow-sm">
+                  {icon}
+                </div>
+              )}
+
+              {/* Title */}
+
+              <div className="flex-1">
+
+                <h3 className="text-2xl font-bold tracking-tight text-slate-900">
+                  {title}
+                </h3>
+
+                {description && (
+                  <p className="mt-2 max-w-3xl text-sm leading-7 text-slate-500">
+                    {description}
+                  </p>
+                )}
+              </div>
+            </div>
           </div>
 
-          {children}
+          {/* Body */}
+
+          <div className="space-y-6 p-7">
+            {children}
+          </div>
         </motion.section>
-      ) : null}
+      )}
     </AnimatePresence>
   );
 }

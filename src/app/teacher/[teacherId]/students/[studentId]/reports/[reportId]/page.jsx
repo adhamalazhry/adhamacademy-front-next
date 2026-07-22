@@ -8,7 +8,7 @@ import {
   teacherStudentReportEditPath,
   teacherStudentReportsPath,
 } from "@/lib/routes/teacher";
-import { getReport } from "@/services/report.service";
+import { getReport } from "@/services/reprts/report.service";
 
 export default function TeacherStudentReportDetailsPage({ params }) {
   const { teacherId, studentId, reportId } = use(params);

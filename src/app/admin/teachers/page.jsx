@@ -3,24 +3,21 @@
 import { useState } from "react";
 import Link from "next/link";
 import { Plus, PencilLine, Eye, Banknote } from "lucide-react";
+import { getTeachers } from "@/services/teachers/teacher.service";
+
 import useSWR from "swr";
 
 import DataTable from "@/components/table/DataTable";
 import TeacherHourlyRateDialog from "@/components/teachers/TeacherHourlyRateDialog";
 import {
   formatTeacherHourlyRate,
-  getTeacherStudentCount,
-  getTeachers,
-} from "@/services/teacher.service";
+  formatTeacherStudentCount,
+} from "@/services/common/formatter";
 
 export default function Page() {
   const [selectedTeacher, setSelectedTeacher] = useState(null);
 
-  const {
-    data: teachers,
-    isLoading,
-    error,
-  } = useSWR("/teachers", getTeachers);
+  const { data: teachers, isLoading, error } = useSWR("/teachers", getTeachers);
 
   if (isLoading) return <p>Loading...</p>;
 
@@ -30,10 +27,14 @@ export default function Page() {
 
   if (!safeTeachers.length) {
     return (
-      <div dir="rtl" className="p-8">
+      <div dir="rtl" className="p-8 ">
         <div className="rounded-3xl border border-slate-200 bg-white p-8 text-center shadow-sm">
-          <p className="text-lg font-semibold text-slate-900">لا يوجد معلمون حالياً</p>
-          <p className="mt-2 text-sm text-slate-500">أضف أول معلم من زر الإنشاء في الأعلى.</p>
+          <p className="text-lg font-semibold text-slate-900">
+            لا يوجد معلمون حالياً
+          </p>
+          <p className="mt-2 text-sm text-slate-500">
+            أضف أول معلم من زر الإنشاء في الأعلى.
+          </p>
 
           <Link
             href="/admin/teachers/new"
@@ -57,7 +58,9 @@ export default function Page() {
       render: (teacher) => (
         <div className="text-right">
           <p className="font-semibold text-slate-900">{teacher.name}</p>
-          <p className="mt-1 text-xs text-slate-500">{teacher.currency || "EGP"}</p>
+          <p className="mt-1 text-xs text-slate-500">
+            {teacher.currency || "EGP"}
+          </p>
         </div>
       ),
     },
@@ -67,19 +70,13 @@ export default function Page() {
     },
     {
       title: "عدد الطلاب",
-      render: (teacher) => {
-        const studentCount = getTeacherStudentCount(teacher);
-
-        return studentCount > 0 ? `${studentCount} طالب` : "0";
-      },
+      render: (teacher) => formatTeacherStudentCount(teacher),
     },
+
     {
       title: "سعر الساعة",
       render: (teacher) => {
-        const hourlyRate = formatTeacherHourlyRate(
-          teacher.hourlyRate,
-          teacher.currency,
-        );
+        const hourlyRate = formatTeacherHourlyRate(teacher);
 
         if (hourlyRate) {
           return (
@@ -133,6 +130,7 @@ export default function Page() {
       ),
     },
   ];
+  console.log(safeTeachers[0]);
 
   return (
     <div dir="rtl" className="space-y-6 p-8">
@@ -164,7 +162,7 @@ export default function Page() {
         </Link>
       </div>
 
-      <DataTable columns={columns} data={safeTeachers} />
+      <DataTable columns={columns} data={safeTeachers}  />
     </div>
   );
 }

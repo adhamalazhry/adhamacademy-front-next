@@ -2,8 +2,8 @@
 
 import { use, useMemo, useState } from "react";
 import Link from "next/link";
-import TeacherSectionCard from "@/components/teacher-portal/TeacherSectionCard";
-import TeacherSkeleton from "@/components/teacher-portal/TeacherSkeleton";
+import TeacherSectionCard from "@/components/teachers/teacher-portal/TeacherSectionCard";
+import TeacherSkeleton from "@/components/teachers/teacher-portal/TeacherSkeleton";
 import { useTeacherPortalData } from "@/hooks/useTeacherPortalData";
 import { teacherReportsPath } from "@/lib/routes/teacher";
 

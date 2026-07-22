@@ -9,7 +9,7 @@ import Button from "@/components/ui/Button";
 import FormButton from "@/components/forms/FormButton";
 import Toast from "@/components/ui/Toast";
 import TeacherFormFields from "./forms/TeacherFormFields";
-import { updateTeacher } from "@/services/teacher.service";
+import { updateTeacher } from "@/services/teachers/teacher.service";
 
 function buildDefaultValues(teacher) {
   return {

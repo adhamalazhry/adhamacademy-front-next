@@ -15,27 +15,42 @@ function ItemRow({ item, showEvaluation = true, showNotes = true }) {
   const toAyah = item?.toAyah ?? item?.to ?? item?.endAyah;
 
   return (
-    <div className="rounded-xl border border-white/70 bg-white/75 p-3">
-      <p className="font-semibold text-slate-900">{item?.surah || item?.title || "-"}</p>
+    <div className="rounded-xl border border-white/70  p-3">
+      <p className="font-semibold text-slate-900">
+        {item?.surah || item?.title || "-"}
+      </p>
 
       {fromAyah || toAyah ? (
-        <p className="mt-1 text-sm text-slate-600">من {fromAyah || "-"} إلى {toAyah || "-"}</p>
+        <p className="mt-1 text-sm text-slate-600">
+          من {fromAyah || "-"} إلى {toAyah || "-"}
+        </p>
       ) : null}
 
       {showEvaluation && item?.evaluation ? (
-        <p className="mt-1 text-xs font-semibold text-slate-500">التقييم: {item.evaluation}</p>
+        <p className="mt-1 text-xs font-semibold text-slate-500">
+          التقييم: {item.evaluation}
+        </p>
       ) : null}
 
       {showNotes && item?.notes ? (
-        <p className="mt-2 whitespace-pre-wrap text-sm text-slate-600">{item.notes}</p>
+        <p className="mt-2 whitespace-pre-wrap text-sm text-slate-600">
+          {item.notes}
+        </p>
       ) : null}
     </div>
   );
 }
 
-function GroupCard({ title, toneClass, items, emptyText = "لا يوجد", showEvaluation = true, showNotes = true }) {
+function GroupCard({
+  title,
+  toneClass,
+  items,
+  emptyText = "لا يوجد",
+  showEvaluation = true,
+  showNotes = true,
+}) {
   return (
-    <section className={`rounded-2xl border p-4 ${toneClass}`}>
+    <section className={`rounded-2xl border p-4  ${toneClass}`}>
       <h3 className="text-sm font-extrabold">{title}</h3>
 
       {!Array.isArray(items) || items.length === 0 ? (
@@ -60,7 +75,9 @@ function NotesCard({ title, value }) {
   return (
     <section className="rounded-2xl border border-slate-200 bg-slate-50 p-4">
       <h3 className="text-sm font-extrabold text-slate-900">{title}</h3>
-      <p className="mt-2 whitespace-pre-wrap text-sm text-slate-700">{value || "لا يوجد"}</p>
+      <p className="mt-2 whitespace-pre-wrap text-sm text-slate-700">
+        {value || "لا يوجد"}
+      </p>
     </section>
   );
 }
@@ -72,25 +89,38 @@ export default function ReportCard({
   onDelete,
   isDeleting = false,
 }) {
-  const studentName = report?.student?.name || report?.studentName || "طالب غير محدد";
-  const teacherName = report?.teacher?.name || report?.teacherName || "معلم غير محدد";
+  const studentName =
+    report?.student?.name || report?.studentName || "طالب غير محدد";
+  const teacherName =
+    report?.teacher?.name || report?.teacherName || "معلم غير محدد";
   const homeworkSections = resolveHomeworkSections(report);
 
   return (
-    <div className="rounded-[2rem] border border-slate-200 bg-[radial-gradient(circle_at_top,_rgba(255,255,255,0.95),_rgba(248,250,252,0.98),_rgba(226,232,240,0.8))] p-5 shadow-lg shadow-slate-200/70">
+    <div className="rounded-[2rem] border  border-slate-200 bg-[radial-gradient(circle_at_top,_rgba(255,255,255,0.95),_rgba(248,250,252,0.98),_rgba(226,232,240,0.8))] p-5 shadow-lg shadow-slate-200/70">
       <header className="mb-5 rounded-2xl border border-slate-200 bg-white/85 p-4">
         <div className="flex items-center justify-between gap-3">
-          <h2 className="text-xl font-extrabold text-slate-900">تفاصيل تقرير الحصة</h2>
-          <span className="rounded-full border border-slate-200 bg-slate-100 px-3 py-1 text-xs font-bold text-slate-700">#{report.id}</span>
+          <h2 className="text-xl font-extrabold text-slate-900">
+            تفاصيل تقرير الحصة
+          </h2>
+          <span className="rounded-full border border-slate-200 bg-slate-100 px-3 py-1 text-xs font-bold text-slate-700">
+            #{report.id}
+          </span>
         </div>
 
         <div className="mt-3 grid gap-3 md:grid-cols-2 lg:grid-cols-4">
-          <ValueBadge label="تاريخ الحصة" value={String(report?.lessonDate || "-").slice(0, 10)} />
+          <ValueBadge
+            label="تاريخ الحصة"
+            value={String(report?.lessonDate || "-").slice(0, 10)}
+          />
           <ValueBadge label="الطالب" value={studentName} />
           <ValueBadge label="المعلم" value={teacherName} />
           <ValueBadge
             label="المدة"
-            value={report?.lessonDuration || report?.durationMinutes ? `${report?.lessonDuration || report?.durationMinutes} دقيقة` : "غير متاح"}
+            value={
+              report?.lessonDuration || report?.durationMinutes
+                ? `${report?.lessonDuration || report?.durationMinutes} دقيقة`
+                : "غير متاح"
+            }
           />
         </div>
       </header>
@@ -155,7 +185,7 @@ export default function ReportCard({
         <NotesCard title="ملاحظات ولي الامر" value={report?.parentNotes} />
       </div>
 
-      {(detailsHref || editHref || typeof onDelete === "function") ? (
+      {detailsHref || editHref || typeof onDelete === "function" ? (
         <div className="mt-5 flex flex-wrap justify-end gap-2 border-t border-slate-200 pt-4">
           {detailsHref ? (
             <Link

@@ -5,9 +5,9 @@ import { useRouter } from "next/navigation";
 import useSWR, { useSWRConfig } from "swr";
 import LessonReportForm from "@/components/reports/lesson-report/LessonReportForm";
 import Toast from "@/components/ui/Toast";
-import { getReport, updateReport } from "@/services/report.service";
-import { getTeacher } from "@/services/teacher.service";
-import { getStudent } from "@/services/student.service";
+import { getReport, updateReport } from "@/services/reprts/report.service";
+import { getTeacher } from "@/services/teachers/teacher.service";
+import { getStudent } from "@/services/students/student.service";
 
 function mapReportToFormDefaults(report) {
   const mapSection = (items) =>
@@ -93,7 +93,7 @@ export default function TeacherStudentReportEditPage({ params }) {
   }
 
   return (
-    <div dir="rtl" className="space-y-6 p-6">
+    <div dir="rtl" className="space-y-6 p-6 ">
       <Toast
         open={Boolean(toastMessage)}
         title="نجاح"

@@ -4,7 +4,7 @@ import { useForm } from "react-hook-form";
 import FormRenderer from "@/components/forms/FormRenderer";
 import FormSection from "@/components/forms/FormSection";
 import FormButton from "@/components/forms/FormButton";
-import TeacherSectionCard from "@/components/teacher-portal/TeacherSectionCard";
+import TeacherSectionCard from "@/components/teachers/teacher-portal/TeacherSectionCard";
 
 const profileFields = [
   { component: "input", inputType: "text", name: "name", label: "الاسم", rules: { required: "الاسم مطلوب" } },

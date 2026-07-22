@@ -3,7 +3,7 @@
 import { use } from "react";
 import useSWR from "swr";
 
-import { getStudent } from "@/services/student.service";
+import { getStudent } from "@/services/students/student.service";
 
 export default function StudentPage({ params }) {
   const { id } = use(params);

@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { use } from "react";
 import useSWR from "swr";
-import { getTeacherStudents } from "@/services/teacher.service";
+import {  getTeacherStudents } from "@/services/teachers/teacher-student.service";
 
 export default function TeacherStudentsPage({ params }) {
   const { id } = use(params);
@@ -18,7 +18,7 @@ export default function TeacherStudentsPage({ params }) {
 
   if (isLoading) return <p>جاري تحميل الطلاب...</p>;
   if (error) return <p>حدث خطأ أثناء تحميل الطلاب</p>;
-
+console.log(students)
   return (
     <div className="max-w-4xl mx-auto p-6">
       <h1 className="mb-6 text-3xl font-bold text-slate-800">

@@ -3,9 +3,9 @@
 import { use } from "react";
 import useSWR from "swr";
 import NextLessonOverview from "@/components/reports/NextLessonOverview";
-import TeacherSectionCard from "@/components/teacher-portal/TeacherSectionCard";
-import { getTeacherStudentReports } from "@/services/report.service";
-import { getTeacherStudent } from "@/services/student.service";
+import TeacherSectionCard from "@/components/teachers/teacher-portal/TeacherSectionCard";
+import { getTeacherStudentReports } from "@/services/reprts/report.service";
+import { getTeacherStudent } from "@/services/students/student.service";
 
 export default function TeacherStudentHomeworkPage({ params }) {
   const { teacherId, studentId } = use(params);

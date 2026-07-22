@@ -212,21 +212,7 @@ export default function NextLessonOverview({
     nearReview.length ||
     distantReview.length;
 
-  if (!hasHomework) {
-    return (
-      <div className="rounded-[36px] border border-dashed border-slate-200 bg-white p-12 text-center shadow-sm">
-        <BookOpen className="mx-auto mb-5 h-14 w-14 text-slate-300" />
-
-        <h2 className="text-xl font-black text-slate-800">
-          لا يوجد واجب للحصة القادمة
-        </h2>
-
-        <p className="mt-3 text-slate-500">
-          سيظهر هنا الواجب بمجرد اعتماد التقرير.
-        </p>
-      </div>
-    );
-  }
+ 
 
   return (
     <article className="overflow-hidden rounded-[36px] border border-teal-100 bg-gradient-to-br from-white via-teal-50/60 to-cyan-50/70 shadow-xl">

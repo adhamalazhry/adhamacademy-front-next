@@ -4,8 +4,8 @@ export default function NearReviewSection(props) {
   return (
     <QuranListSection
       {...props}
-      title="ما تم مراجعته مراجعة قريبة"
-      description="سجّل المقاطع التي راجعها الطالب من المقرر القريب خلال الحصة."
+      title="   المراجعة القريبة"
+      description="سجل المراجعة القريبة  التي قام الطالب بمراجعتها."
       accent="blue"
       name="nearReview"
     />

@@ -7,9 +7,9 @@ import useSWR from "swr";
 
 import StudentReportsList from "@/components/reports/StudentReportsList";
 import Toast from "@/components/ui/Toast";
-import { getTeacherStudent, getStudent } from "@/services/student.service";
-import { getTeacher } from "@/services/teacher.service";
-import { getStudentReports, getTeacherStudentReports } from "@/services/report.service";
+import { getTeacherStudent, getStudent } from "@/services/students/student.service";
+import { getTeacher } from "@/services/teachers/teacher.service";
+import { getStudentReports, getTeacherStudentReports } from "@/services/reprts/report.service";
 import LessonHeader from "./LessonHeader";
 import LessonInfoCard from "./LessonInfoCard";
 import { resolveLessonDuration, resolveTeacherName } from "./lesson-report-utils";

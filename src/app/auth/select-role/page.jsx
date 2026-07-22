@@ -16,7 +16,7 @@ const roleOptions = [
     title: "الدخول كمعلم",
     description: "لوحة المعلم وطلابه والتقارير والواجبات.",
     userId: "1",
-    target: "/teacher/1/dashboard",
+    target: "/teacher/3/dashboard",
   },
   {
     role: "student",

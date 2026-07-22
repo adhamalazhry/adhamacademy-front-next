@@ -2,8 +2,8 @@
 
 import { use } from "react";
 import useSWR from "swr";
-import TeacherSectionCard from "@/components/teacher-portal/TeacherSectionCard";
-import { getTeacherStudent } from "@/services/student.service";
+import TeacherSectionCard from "@/components/teachers/teacher-portal/TeacherSectionCard";
+import { getTeacherStudent } from "@/services/students/student.service";
 import { useTeacherPortalData } from "@/hooks/useTeacherPortalData";
 
 export default function TeacherStudentSchedulePage({ params }) {

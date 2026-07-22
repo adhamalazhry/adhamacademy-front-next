@@ -8,7 +8,7 @@ import {
   createStudentSubscription,
   getStudentSubscription,
   updateStudentSubscription,
-} from "@/services/subscription.service";
+} from "@/services//students/student-subscription.service";
 import SubscriptionActions from "./SubscriptionActions";
 import SubscriptionDetails from "./SubscriptionDetails";
 import SubscriptionForm from "./SubscriptionForm";

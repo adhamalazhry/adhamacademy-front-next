@@ -6,9 +6,8 @@ import useSWR from "swr";
 
 import {
   formatTeacherHourlyRate,
-  getTeacher,
   formatTeacherStudentCount,
-} from "@/services/teacher.service";
+} from "@/services/common/formatter";
 
 export default function TeacherPage({ params }) {
   const { id } = use(params);

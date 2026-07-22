@@ -2,8 +2,8 @@
 
 import { use } from "react";
 import useSWR from "swr";
-import TeacherSectionCard from "@/components/teacher-portal/TeacherSectionCard";
-import { getTeacherStudent } from "@/services/student.service";
+import TeacherSectionCard from "@/components/teachers/teacher-portal/TeacherSectionCard";
+import { getTeacherStudent } from "@/services/students/student.service";
 
 export default function TeacherStudentRevisionPage({ params }) {
   const { teacherId, studentId } = use(params);

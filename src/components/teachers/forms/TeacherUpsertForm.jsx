@@ -10,7 +10,7 @@ import Toast from "@/components/ui/Toast";
 import {
   createTeacher,
   updateTeacher,
-} from "@/services/teacher.service";
+} from "@/services/teachers/teacher.service";
 
 const defaultValues = {
   name: "",

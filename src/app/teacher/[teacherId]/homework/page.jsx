@@ -2,8 +2,8 @@
 
 import { use } from "react";
 import NextLessonOverview from "@/components/reports/NextLessonOverview";
-import TeacherSectionCard from "@/components/teacher-portal/TeacherSectionCard";
-import TeacherSkeleton from "@/components/teacher-portal/TeacherSkeleton";
+import TeacherSectionCard from "@/components/teachers/teacher-portal/TeacherSectionCard";
+import TeacherSkeleton from "@/components/teachers/teacher-portal/TeacherSkeleton";
 import { useTeacherPortalData } from "@/hooks/useTeacherPortalData";
 
 export default function TeacherHomeworkPage({ params }) {

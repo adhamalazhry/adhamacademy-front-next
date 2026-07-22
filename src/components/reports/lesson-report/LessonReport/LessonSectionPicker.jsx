@@ -1,47 +1,184 @@
 "use client";
 
 import { AnimatePresence, motion } from "framer-motion";
+import { Plus } from "lucide-react";
 
 const toneClasses = {
-  emerald: "border-emerald-200 bg-emerald-50 text-emerald-900",
-  blue: "border-blue-200 bg-blue-50 text-blue-900",
-  amber: "border-amber-200 bg-amber-50 text-amber-900",
-  violet: "border-violet-200 bg-violet-50 text-violet-900",
-  teal: "border-teal-200 bg-teal-50 text-teal-900",
-  fuchsia: "border-fuchsia-200 bg-fuchsia-50 text-fuchsia-900",
-  rose: "border-rose-200 bg-rose-50 text-rose-900",
-  slate: "border-slate-200 bg-slate-50 text-slate-900",
+  emerald: {
+    bg: "bg-emerald-100",
+    text: "text-emerald-700",
+    border: "border-emerald-200",
+    icon: "📖",
+  },
+
+  blue: {
+    bg: "bg-blue-100",
+    text: "text-blue-700",
+    border: "border-blue-200",
+    icon: "🔁",
+  },
+
+  amber: {
+    bg: "bg-amber-100",
+    text: "text-amber-700",
+    border: "border-amber-200",
+    icon: "📋",
+  },
+
+  violet: {
+    bg: "bg-violet-100",
+    text: "text-violet-700",
+    border: "border-violet-200",
+    icon: "🎙️",
+  },
+
+  slate: {
+    bg: "bg-slate-100",
+    text: "text-slate-700",
+    border: "border-slate-200",
+    icon: "📄",
+  },
 };
 
-export default function LessonSectionPicker({ sections, onEnableSection }) {
+export default function LessonSectionPicker({
+  sections = [],
+  onEnableSection,
+}) {
   return (
-    <section className="rounded-[1.9rem] border border-slate-200 bg-white/90 p-5 shadow-sm shadow-slate-200/70">
-      <div className="text-right">
-        <p className="text-xs font-bold tracking-[0.15em] text-slate-500">SECTION PICKER</p>
-        <h2 className="mt-1 text-xl font-extrabold text-slate-900">أضف اقسام التقرير</h2>
-        <p className="mt-2 text-sm leading-7 text-slate-600">كل بطاقة تمثل قسما مستقلا. عند التفعيل تختفي البطاقة ويظهر القسم مباشرة في النموذج.</p>
+    <section className="overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm">
+      {/* Header */}
+
+      <div className="border-b border-slate-200 px-6 py-6">
+        <span className="rounded-full bg-blue-100 px-3 py-1 text-xs font-bold text-blue-700">
+          تقرير الحصة
+        </span>
+
+        <h2 className="mt-4 text-2xl font-black text-slate-900">
+          أضف أقسام التقرير
+        </h2>
+
+        <p className="mt-2 text-sm leading-7 text-slate-500">
+          اختر القسم الذي تريد إضافته، وسيظهر مباشرة داخل التقرير.
+        </p>
       </div>
 
-      <div className="mt-5 grid gap-3 md:grid-cols-2">
-        <AnimatePresence>
-          {sections.map((section, index) => (
+      {/* Sections */}
+
+      <AnimatePresence>
+        {sections.map((section, index) => {
+          const tone =
+            toneClasses[section.tone] || toneClasses.slate;
+
+          return (
             <motion.button
               key={section.key}
               type="button"
-              initial={{ opacity: 0, y: 8, scale: 0.98 }}
-              animate={{ opacity: 1, y: 0, scale: 1 }}
-              exit={{ opacity: 0, scale: 0.96 }}
-              transition={{ duration: 0.2, delay: index * 0.03 }}
+              layout
+              initial={{ opacity: 0, y: 12 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -12 }}
+              transition={{
+                duration: 0.25,
+                delay: index * 0.05,
+              }}
               onClick={() => onEnableSection(section.key)}
-              className={`rounded-2xl border p-4 text-right shadow-sm transition hover:-translate-y-0.5 hover:shadow-md ${toneClasses[section.tone] || toneClasses.slate}`}
+              className="
+                group
+                flex
+                w-full
+                items-center
+                justify-between
+                border-b
+                border-slate-100
+                px-6
+                py-5
+                text-right
+                transition-all
+                duration-300
+                hover:bg-slate-50
+              "
             >
-              <p className="text-[11px] font-bold tracking-[0.16em] opacity-75">{section.group.toUpperCase()}</p>
-              <h3 className="mt-2 text-lg font-extrabold">{section.title}</h3>
-              <p className="mt-2 text-sm opacity-85">{section.description}</p>
+              {/* Left */}
+
+              <div className="flex items-center gap-4">
+                <div
+                  className={`
+                    flex
+                    h-12
+                    w-12
+                    items-center
+                    justify-center
+                    rounded-2xl
+                    text-xl
+                    ${tone.bg}
+                    ${tone.text}
+                  `}
+                >
+                  {tone.icon}
+                </div>
+
+                <div>
+                  <h3 className="text-lg font-bold text-slate-900">
+                    {section.title}
+                  </h3>
+
+                  <p className="mt-1 text-sm text-slate-500">
+                    {section.description}
+                  </p>
+                </div>
+              </div>
+
+              {/* Right */}
+
+              <div className="flex items-center gap-3">
+                <span className="text-sm font-semibold text-slate-500 group-hover:text-slate-900">
+                  إضافة
+                </span>
+
+                <div
+                  className={`
+                    flex
+                    h-10
+                    w-10
+                    items-center
+                    justify-center
+                    rounded-full
+                    text-white
+                    transition-transform
+                    duration-300
+                    group-hover:rotate-90
+                    ${
+                      tone.text === "text-emerald-700"
+                        ? "bg-emerald-600"
+                        : tone.text === "text-blue-700"
+                        ? "bg-blue-600"
+                        : tone.text === "text-amber-700"
+                        ? "bg-amber-500"
+                        : tone.text === "text-violet-700"
+                        ? "bg-violet-600"
+                        : "bg-slate-700"
+                    }
+                  `}
+                >
+                  <Plus size={18} />
+                </div>
+              </div>
             </motion.button>
-          ))}
-        </AnimatePresence>
-      </div>
+          );
+        })}
+      </AnimatePresence>
+
+      {sections.length === 0 && (
+        <div className="px-6 py-12 text-center">
+          <p className="text-lg font-bold text-slate-900">
+            تمت إضافة جميع الأقسام
+          </p>
+
+          <p className="mt-2 text-sm text-slate-500">
+            يمكنك الآن البدء في كتابة التقرير.
+          </p>
+        </div>
+      )}
     </section>
   );
 }

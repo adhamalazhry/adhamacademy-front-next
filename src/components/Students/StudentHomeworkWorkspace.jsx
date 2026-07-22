@@ -2,9 +2,9 @@
 
 import useSWR from "swr";
 import NextLessonOverview from "@/components/reports/NextLessonOverview";
-import TeacherSectionCard from "@/components/teacher-portal/TeacherSectionCard";
-import { getStudentReports } from "@/services/report.service";
-import { getStudent } from "@/services/student.service";
+import TeacherSectionCard from "@/components/teachers/teacher-portal/TeacherSectionCard";
+import { getStudentReports } from "@/services/reprts/report.service";
+import { getStudent } from "@/services/students/student.service";
 
 export default function StudentHomeworkWorkspace({ studentId }) {
   const {

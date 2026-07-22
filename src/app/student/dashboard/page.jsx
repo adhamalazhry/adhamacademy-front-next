@@ -2,7 +2,7 @@
 
 import MetricCard from "@/components/dashboard/MetricCard";
 import useSWR from "swr";
-import { getStudent } from "@/services/student.service";
+import { getStudent } from "@/services/students/student.service";
 import { getClientSession } from "@/lib/auth/session-client";
 
 export default function StudentDashboardPage() {

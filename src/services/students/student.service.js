@@ -1,7 +1,7 @@
 // src/services/student.service.js
 
 import { api } from "@/lib/api";
-import { getTeacherStudents } from "@/services/teacher.service";
+import { getTeacherStudents } from "@/services/teachers/teacher-student.service";
 
 export function getStudents() {
   return api("/students");
